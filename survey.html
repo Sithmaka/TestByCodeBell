@@ -10,64 +10,73 @@
   <div class="container py-5">
     <h2 class="mb-4 text-center">Personality & Problem Survey</h2>
     <form id="surveyForm">
+
+      <!-- Section 1: Analyze User Challenges -->
+      <h5 class="text-secondary">Section 1: Daily Challenges</h5>
       <div class="mb-3">
-        <label class="form-label">1. What motivates you to keep learning or improving yourself?</label>
+        <label class="form-label">1. What’s something you often run out of time to finish?</label>
         <textarea class="form-control" name="q1" required></textarea>
       </div>
       <div class="mb-3">
-        <label class="form-label">2. How do you usually make big life decisions?</label>
+        <label class="form-label">2. How do you feel when your day gets too busy?</label>
         <textarea class="form-control" name="q2" required></textarea>
       </div>
       <div class="mb-3">
-        <label class="form-label">3. Describe your typical approach to solving a difficult problem.</label>
+        <label class="form-label">3. Do you find it hard to focus during the day? Why?</label>
         <textarea class="form-control" name="q3" required></textarea>
       </div>
       <div class="mb-3">
-        <label class="form-label">4. What’s your favorite type of book, and why?</label>
+        <label class="form-label">4. What usually distracts you when you're trying to work or study?</label>
         <textarea class="form-control" name="q4" required></textarea>
       </div>
       <div class="mb-3">
-        <label class="form-label">5. How do you define success in life?</label>
+        <label class="form-label">5. When you feel stressed, what do you do to feel better?</label>
         <textarea class="form-control" name="q5" required></textarea>
       </div>
+
+      <!-- Section 2: Logical vs Spiritual -->
+      <h5 class="text-secondary mt-4">Section 2: Thinking Style</h5>
       <div class="mb-3">
-        <label class="form-label">6. What do you think is more important—logic or emotion? Why?</label>
+        <label class="form-label">6. Do you make decisions more with your heart or your head? Why?</label>
         <textarea class="form-control" name="q6" required></textarea>
       </div>
       <div class="mb-3">
-        <label class="form-label">7. How do you deal with uncertainty or unknown outcomes?</label>
+        <label class="form-label">7. What do you believe helps people live a good life?</label>
         <textarea class="form-control" name="q7" required></textarea>
       </div>
       <div class="mb-3">
-        <label class="form-label">8. When facing stress, what is your go-to strategy for managing it?</label>
+        <label class="form-label">8. Do you prefer facts and logic or feelings and intuition? Explain.</label>
         <textarea class="form-control" name="q8" required></textarea>
       </div>
       <div class="mb-3">
-        <label class="form-label">9. What’s one thing that often makes you feel overwhelmed?</label>
+        <label class="form-label">9. When solving a problem, do you plan step by step or go with your gut?</label>
         <textarea class="form-control" name="q9" required></textarea>
       </div>
       <div class="mb-3">
-        <label class="form-label">10. Describe a time when you felt unmotivated. What happened?</label>
+        <label class="form-label">10. What matters more to you: truth or inner peace?</label>
         <textarea class="form-control" name="q10" required></textarea>
       </div>
+
+      <!-- Section 3: User Engagement -->
+      <h5 class="text-secondary mt-4">Section 3: Habits & Motivation</h5>
       <div class="mb-3">
-        <label class="form-label">11. Do you struggle with procrastination? Explain with an example.</label>
+        <label class="form-label">11. How often do you set personal goals for yourself?</label>
         <textarea class="form-control" name="q11" required></textarea>
       </div>
       <div class="mb-3">
-        <label class="form-label">12. How do you stay organized in your daily routine?</label>
+        <label class="form-label">12. Do you finish the tasks you start? Why or why not?</label>
         <textarea class="form-control" name="q12" required></textarea>
       </div>
       <div class="mb-3">
-        <label class="form-label">13. What’s one goal you’ve been putting off, and why?</label>
+        <label class="form-label">13. How many times a week do you do something just for your growth?</label>
         <textarea class="form-control" name="q13" required></textarea>
       </div>
       <div class="mb-3">
-        <label class="form-label">14. When you feel anxious, what do you think is causing it?</label>
+        <label class="form-label">14. Do you use reminders or routines to stay on track?</label>
         <textarea class="form-control" name="q14" required></textarea>
       </div>
       <div class="mb-3">
-        <label class="form-label">15. What helps you regain focus when distracted?</label>
+        <label class="form-label">15. What helps you stay motivated when working on a long-term goal?</label>
         <textarea class="form-control" name="q15" required></textarea>
       </div>
 
@@ -100,12 +109,10 @@
       e.preventDefault();
 
       const formData = {};
-
       for (let i = 1; i <= 15; i++) {
         formData[`q${i}`] = form[`q${i}`].value.trim();
       }
 
-      // Get name from localStorage
       const name = localStorage.getItem("participantName") || "Anonymous";
       formData.name = name;
       formData.timestamp = serverTimestamp();

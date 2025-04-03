@@ -27,6 +27,23 @@
         <input type="text" class="form-control" id="name" name="name" placeholder="Your name" required />
       </div>
 
+      <div class="mb-3">
+        <label for="university" class="form-label">University:</label>
+        <input type="text" class="form-control" id="university" name="university" placeholder="Your university" required />
+      </div>
+
+      <div class="mb-3">
+        <label for="year" class="form-label">Year of Study:</label>
+        <select class="form-select" id="year" name="year" required>
+          <option value="">Select year</option>
+          <option value="1st Year">1st Year</option>
+          <option value="2nd Year">2nd Year</option>
+          <option value="3rd Year">3rd Year</option>
+          <option value="4th Year">4th Year</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+
       <div class="form-check mb-4">
         <input class="form-check-input" type="checkbox" id="consent" required />
         <label class="form-check-label" for="consent">
@@ -45,17 +62,22 @@
     form.addEventListener("submit", function(e) {
       e.preventDefault();
 
-      const nameInput = document.getElementById("name");
-      const consentCheckbox = document.getElementById("consent");
+      const name = document.getElementById("name").value.trim();
+      const university = document.getElementById("university").value.trim();
+      const year = document.getElementById("year").value;
+      const consent = document.getElementById("consent").checked;
 
-      const name = nameInput.value.trim();
-
-      if (!name || !consentCheckbox.checked) {
-        alert("Please enter your name and agree to participate.");
+      if (!name || !university || !year || !consent) {
+        alert("Please fill in all fields and agree to participate.");
         return;
       }
 
+      // Save all data to localStorage
       localStorage.setItem("participantName", name);
+      localStorage.setItem("university", university);
+      localStorage.setItem("yearOfStudy", year);
+
+      // Navigate to survey
       window.location.href = "survey.html";
     });
   </script>
