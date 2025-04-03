@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thank You</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body class="bg-light">
+  <div class="container py-5 text-center">
+    <h2 class="mb-4 text-success">🎉 Thank You for Participating!</h2>
+    <p>Thank you for taking the time to participate in my research! This survey is part of my individual study on how university students think, solve problems, and handle challenges. <br>Your insights are valuable and will contribute to meaningful findings.</p>
+    <p id="thankMessage" class="lead">Your responses have been recorded successfully.</p>
+    <a id="resetBtn" href="index.html" class="btn btn-primary mt-3">Take Another Attempt</a>
+  </div>
+
+  <script>
+    // Get name from localStorage
+    const name = localStorage.getItem("participantName");
+
+    // Show personalized message
+    const thankMessage = document.getElementById("thankMessage");
+    if (name) {
+      thankMessage.innerHTML = `Thank you, <strong>${name}</strong>, for participating!<br>Your responses have been recorded successfully.`;
+    }
+
+    // Optional: Clear name when taking another attempt
+    document.getElementById("resetBtn").addEventListener("click", () => {
+      localStorage.removeItem("participantName");
+    });
+  </script>
+</body>
+</html>

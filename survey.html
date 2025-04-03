@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Survey Form</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body class="bg-light">
+  <div class="container py-5">
+    <h2 class="mb-4 text-center">Personality & Problem Survey</h2>
+    <form id="surveyForm">
+      <div class="mb-3">
+        <label class="form-label">1. What motivates you to keep learning or improving yourself?</label>
+        <textarea class="form-control" name="q1" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">2. How do you usually make big life decisions?</label>
+        <textarea class="form-control" name="q2" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">3. Describe your typical approach to solving a difficult problem.</label>
+        <textarea class="form-control" name="q3" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">4. What’s your favorite type of book, and why?</label>
+        <textarea class="form-control" name="q4" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">5. How do you define success in life?</label>
+        <textarea class="form-control" name="q5" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">6. What do you think is more important—logic or emotion? Why?</label>
+        <textarea class="form-control" name="q6" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">7. How do you deal with uncertainty or unknown outcomes?</label>
+        <textarea class="form-control" name="q7" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">8. When facing stress, what is your go-to strategy for managing it?</label>
+        <textarea class="form-control" name="q8" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">9. What’s one thing that often makes you feel overwhelmed?</label>
+        <textarea class="form-control" name="q9" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">10. Describe a time when you felt unmotivated. What happened?</label>
+        <textarea class="form-control" name="q10" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">11. Do you struggle with procrastination? Explain with an example.</label>
+        <textarea class="form-control" name="q11" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">12. How do you stay organized in your daily routine?</label>
+        <textarea class="form-control" name="q12" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">13. What’s one goal you’ve been putting off, and why?</label>
+        <textarea class="form-control" name="q13" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">14. When you feel anxious, what do you think is causing it?</label>
+        <textarea class="form-control" name="q14" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">15. What helps you regain focus when distracted?</label>
+        <textarea class="form-control" name="q15" required></textarea>
+      </div>
+
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary">Submit Responses</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Firebase SDK v11.6.0 using modules -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+    import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAOtr689lnRi9YvgtxNfl9t53xJPwvReH8",
+      authDomain: "aivacapacitybuilding.firebaseapp.com",
+      projectId: "aivacapacitybuilding",
+      storageBucket: "aivacapacitybuilding.firebasestorage.app",
+      messagingSenderId: "811782091438",
+      appId: "1:811782091438:web:1a5d519b4ddc4dfec6b33f"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    const form = document.getElementById("surveyForm");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const formData = {};
+
+      for (let i = 1; i <= 15; i++) {
+        formData[`q${i}`] = form[`q${i}`].value.trim();
+      }
+
+      // Get name from localStorage
+      const name = localStorage.getItem("participantName") || "Anonymous";
+      formData.name = name;
+      formData.timestamp = serverTimestamp();
+
+      try {
+        await addDoc(collection(db, "survey_responses"), formData);
+        window.location.href = "thankyou.html";
+      } catch (error) {
+        console.error("Error adding document: ", error);
+        alert("❌ Error submitting responses. Please try again.");
+      }
+    });
+  </script>
+</body>
+</html>
