@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CodeBell Labs</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      overflow: hidden;
+    }
+
+    video#bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .container {
+      position: relative;
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.4); /* optional overlay */
+    }
+
+    .logo {
+      width: 200px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      letter-spacing: 3px;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin: 15px 0;
+      font-weight: 300;
+    }
+
+    .cta-button {
+      margin-top: 30px;
+      padding: 12px 30px;
+      font-size: 1.1rem;
+      background-color: white;
+      color: #5e2ca5;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #f0f0f0;
+    }
+
+    .powered-by {
+        position: absolute;
+        bottom: 40px;
+        text-align: center;
+        font-size: 0.9rem;
+        width: 100%;
+    }
+
+    .powered-by img {
+      width: 250px;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+      h2 {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Video -->
+  <video autoplay muted loop id="bg-video">
+    <source src="./src/bgv.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="container">
+    <!-- Logo -->
+    <img src="./src/logo.png" alt="CodeBell Logo" class="logo" />
+
+    <!-- Heading -->
+    <h1>WELCOME TO CODEBELL LABS</h1>
+    <h4>EXPLORE OUR TEST APPLICATIONS AND LIVE DEMO VERSIONS</h4>
+
+    <!-- CTA Button -->
+    <a href="#demos">
+      <button class="cta-button">View Demo</button>
+    </a>
+
+    <!-- Powered by -->
+    <div class="powered-by">
+      <img src="./src/poweredby.png" alt="Powered by Codebell" />
+    </div>
+  </div>
+
+</body>
+</html>
