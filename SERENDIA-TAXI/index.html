@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Serendia Taxi | Under Construction</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #ffffff;
+      color: #111418;
+    }
+
+    .topbar {
+      background-color: #f4a600;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 1rem;
+      gap: 3rem;
+    }
+
+    .left-section, .right-section {
+      flex: 1 1 350px;
+      text-align: center;
+    }
+
+    .img1 {
+      max-width: 300px;
+      width: 100%;
+      margin-bottom: 1.5rem;
+    }
+
+    .checkerboard {
+      width: 150px;
+      margin: 1rem auto;
+      display: block;
+    }
+
+    .loading {
+      width: 70px;
+      margin-top: 1rem;
+    }
+
+    .logo {
+      max-width: 320px;
+      width: 100%;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 0 1rem;
+      font-size: 0.9rem;
+      color: #444;
+      border-top: 1px solid #eee;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-logo {
+      width: 200px; /* Increased size */
+      height: auto;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        padding: 1.5rem 1rem;
+        gap: 2rem;
+      }
+
+      .img1, .logo {
+        max-width: 90%;
+      }
+
+      .checkerboard {
+        width: 120px;
+      }
+
+      .footer-logo {
+        width: 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="topbar">
+    <h1>serendiataxi.online</h1>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Left Section -->
+    <div class="left-section">
+      <img src="IMG1.png" alt="Taxi Sign" class="img1" />
+      <img src="Loading.gif" alt="Checkerboard" class="checkerboard" />
+    </div>
+
+    <!-- Right Section -->
+    <div class="right-section">
+      <img src="Logo.png" alt="Serendia Logo" class="logo" />
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <img src="Developer.png" alt="Codebell Logo" class="footer-logo" />
+    </div>
+  </footer>
+
+</body>
+</html>
